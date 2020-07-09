@@ -61,13 +61,26 @@ public class ReplyMapperTests {
 	 * 
 	 * replies.forEach(reply -> log.info(reply)); }
 	 */
-	
+
 	@Test
 	public void testList2() {
 		Criteria cri = new Criteria(1, 10);
-		
+
 		List<ReplyVO> replies = mapper.getListWithPaging(cri, 6815922L);
-		
+
 		replies.forEach(reply -> log.info(reply));
+	}
+
+	@Test
+	public void testCreate() {
+		IntStream.rangeClosed(37, 137).forEach(i -> {
+			ReplyVO vo = new ReplyVO();
+
+			vo.setBno(6815922L); 
+			vo.setReply("댓글 테스트 " + i);
+			vo.setReplyer("replyer" + i);
+			
+			mapper.insert(vo);
+		});
 	}
 }
