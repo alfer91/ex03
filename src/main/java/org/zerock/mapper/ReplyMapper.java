@@ -17,4 +17,6 @@ public interface ReplyMapper {
 	
 	// MyBaits에서 두 개 이상의 데이터를 파라미터로 전달  1. 객체 생성  2. Map  3. @Param 
 	public List<ReplyVO> getListWithPaging(@Param("cri") Criteria cri, @Param("bno") Long bno);
+	
+	public int getCountByBno(Long bno);
 }
